@@ -11,7 +11,28 @@ class App extends React.Component {
     }
   }
   
-  eles = {
+  handleBtnClick = (isNext = true) => e => {
+    switch (this.state.status) {
+      case 1:
+        this.setState({
+          status: 2
+        })
+        break;
+      case 2:
+      case 3:
+        this.setState({
+          status: isNext ? 4 : 1
+        })
+        break;
+      case 4:
+        this.setState({
+          status: 3
+        })
+        break;
+    }
+  }
+  
+  eles = () => ({
     header: [
       ['请认真', <br/>, '填写信息！'],
       ['你的信息', <br/>, '已经被爱闹', <br/>, '记在心里了（羞羞'],
@@ -57,21 +78,21 @@ class App extends React.Component {
       ]
     ],
     footer: [
-      <Button isLong isOnly>保存信息</Button>,
+      <Button isLong isOnly handleClick={this.handleBtnClick()}>保存信息</Button>,
       [
-        <Button>我要重写</Button>,
-        <Button>查询成绩</Button>
+        <Button key="retry" handleClick={this.handleBtnClick(false)}>我要重写</Button>,
+        <Button key="query" handleClick={this.handleBtnClick()}>查询成绩</Button>
       ],
       [
-        <Button>我要重写</Button>,
-        <Button>查询成绩</Button>
+        <Button key="retry" handleClick={this.handleBtnClick(false)}>我要重写</Button>,
+        <Button key="query" handleClick={this.handleBtnClick()}>查询成绩</Button>
       ],
-      <Button isLong isOnly>返回</Button>,
+      <Button isLong isOnly handleClick={this.handleBtnClick()}>返回</Button>,
     ]
-  }
+  })
   
   getEl = key => {
-    return this.eles[key][this.state.status - 1]
+    return this.eles()[key][this.state.status - 1]
   }
   
   render() {
