@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+a,
+a:link,
+a:focus,
+a:visited {
+  text-decoration: none;
+}
+
+body {
+  padding: 1.44rem 1.386667rem 0;
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
+
+footer {
+  position: absolute;
+  bottom: 0.346667rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.App__header-1d5Qc {
+  font-size: 0.933333rem;
+  color: #73c5c5;
+  white-space: nowrap;
+}
+
+.App__main-15Ir1 {
+  font-size: 0.586667rem;
+  color: #303030;
+}
+
+.App__main-15Ir1.App__main-1-2T81t {
+  margin: 2.266667rem 0 2.666667rem;
+}
+
+.App__main-15Ir1.App__main-2-wVpj_ {
+  margin: 1.333333rem 0 2.133333rem;
+  line-height: 2;
+}
+
+.App__main-15Ir1.App__main-3-6TxMy {
+  margin: 2.4rem 0 3.333333rem;
+  line-height: 2;
+}
+
+.App__main-15Ir1.App__main-4-2r3KF {
+  margin: 1.653333rem 0 1.333333rem;
+  line-height: 2;
+}
+
+.App__main-15Ir1 .App__score-1t1aZ {
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.App__footer-1oh0h {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.App__btn-aR9Wv {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0.266667rem 0.36rem;
+  background: #73c5c5;
+  color: #fff;
+  font-size: 0.586667rem;
+  border-radius: 0.08rem;
+  box-shadow: 0 0.106667rem 0.266667rem rgba(0, 0, 0, 0.15);
+  transition: background .2s, box-shadow .2s;
+}
+
+.App__btn-aR9Wv:active {
+  background: #4fb6b6;
+  box-shadow: 0 0.106667rem 0.4rem rgba(0, 0, 0, 0.3);
+}
+
+.App__btn-aR9Wv.App__long-351_P {
+  padding-left: 1.013333rem;
+  padding-right: 1.013333rem;
+}
+
+.App__btn-aR9Wv.App__only-3zPEj {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.App__input-wrapper-1KxEZ {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.App__input-wrapper-1KxEZ:last-of-type {
+  margin-top: 1.12rem;
+}
+
+.App__input-wrapper-1KxEZ label {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  margin-right: 0.626667rem;
+}
+
+.App__input-wrapper-1KxEZ input {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  width: 100%;
+  border: 0.053333rem solid #73c5c5;
+  font-size: 0.64rem;
+  border-radius: 0.08rem;
+  outline: none;
+}
