@@ -1,0 +1,39 @@
+version: 2
+jobs:
+  build:
+    working_directory: /usr/src/app
+    docker:
+      - image: node:7-onbuild
+    branches:
+      only:
+        - release
+    steps:
+      - checkout
+      - restore_cache:
+          key: deps-{{ .Branch }}-{{ checksum "package.json" }}
+      - run:
+          name: npm install
+          command: npm install
+      - save_cache:
+          key: deps-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: npm run build
+          command: npm run build
+      - run:
+          name: commit
+          command: |
+            st=`git log -1 --pretty=oneline`
+            if [[ $st == *Merge* ]]
+              then
+                git config --global user.email "mondogao@gmail.com"
+                git config --global user.name "Mondo"
+                git add .
+                git commit -m "release"
+                git status
+                git push -u origin release
+            fi
+      - store_artifacts:
+          path: dist/c
+          destination: dist
