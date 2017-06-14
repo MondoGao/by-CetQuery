@@ -5,6 +5,7 @@ import * as sources from 'sources'
 
 class App extends React.Component {
   state = {
+    isLoading: true,
     status: 1,
     data: {
       code: '',
@@ -12,12 +13,20 @@ class App extends React.Component {
     }
   }
   
+  toggleLoading = (isLoading = true) => {
+    this.setState({
+      isLoading
+    })
+  }
+  
   handleBtnClick = (isNext = true) => e => {
     switch (this.state.status) {
       case 1:
+        this.toggleLoading()
         sources.postAdd(this.state.data.code, this.state.data.name)
           .then(() => {
             this.setState({
+              isLoading: false,
               status: 2
             })
           })
@@ -25,9 +34,11 @@ class App extends React.Component {
       case 2:
       case 3:
         if (isNext) {
+          this.toggleLoading()
           sources.getCet()
             .then(data => {
               this.setState(prevState => ({
+                isLoading: false,
                 status: 4,
                 data: {
                   ...prevState.data,
@@ -126,6 +137,7 @@ class App extends React.Component {
       .then(data => {
         if (data.data) {
           this.setState({
+            isLoading: false,
             status: 3,
             data: {
               ...this.state.data,
@@ -144,8 +156,14 @@ class App extends React.Component {
   }
   
   render() {
-    if (!~this.state.status) {
-      return null
+    if (!~this.state.status ||this.state.isLoading) {
+      return (
+        <div>
+          <h2 className={styles.header}>
+            加载中...
+          </h2>
+        </div>
+      )
     }
     
     return (
