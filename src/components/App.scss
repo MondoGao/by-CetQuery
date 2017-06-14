@@ -34,6 +34,7 @@ $btnColor: #fff;
 .header {
   font-size: 70px;
   color: $headerColor;
+  white-space: nowrap;
 }
 
 .main {
@@ -42,6 +43,10 @@ $btnColor: #fff;
   
   &.main-1 {
     margin: 170px 0 200px;
+  }
+  &.main-2 {
+    margin: 100px 0 160px;
+    line-height: 2;
   }
 }
 
