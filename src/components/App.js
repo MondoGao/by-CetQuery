@@ -4,7 +4,7 @@ import styles from './App.scss'
 
 class App extends React.Component {
   state = {
-    status: 2,
+    status: 4,
     data: {
       name: 'test',
       number: '29384728374827'
@@ -14,7 +14,9 @@ class App extends React.Component {
   eles = {
     header: [
       ['请认真', <br/>, '填写信息！'],
-      ['你的信息', <br/>, '已经被爱闹', <br/>, '记在心里了（羞羞']
+      ['你的信息', <br/>, '已经被爱闹', <br/>, '记在心里了（羞羞'],
+      ['你被爱闹', <br/>, '保存的信息！'],
+      [`${this.state.data.name}同学`, <br/>, '你的四级分数：']
     ],
     main: [
       <EditInfo/>,
@@ -29,6 +31,29 @@ class App extends React.Component {
         <p>
           “别忘了回来查看成绩哦”
         </p>
+      ],
+      [
+        <p>
+          考号：<span>02398490284938</span>
+        </p>,
+        <p>
+          姓名：<span>爱闹</span>
+        </p>
+      ],
+      [
+        <p className={styles.score}>
+          总分：xxx
+        </p>,
+        <br/>,
+        <p>
+          听力：xxx
+        </p>,
+        <p>
+          阅读：xxx
+        </p>,
+        <p>
+          写作和翻译：xxx
+        </p>,
       ]
     ],
     footer: [
@@ -36,7 +61,12 @@ class App extends React.Component {
       [
         <Button>我要重写</Button>,
         <Button>查询成绩</Button>
-      ]
+      ],
+      [
+        <Button>我要重写</Button>,
+        <Button>查询成绩</Button>
+      ],
+      <Button isLong isOnly>返回</Button>,
     ]
   }
   
