@@ -51,12 +51,15 @@ class App extends React.Component {
         <h2 className={styles.header}>
           {this.getEl('header')}
         </h2>
-        <article className={styles.main}>
+        <article className={`${styles.main} ${styles[`main-${this.state.status}`]}`}>
           {this.getEl('main')}
         </article>
         <div className={styles.footer}>
           {this.getEl('footer')}
         </div>
+        <footer>
+          2017© Powered by Bingyan Studio
+        </footer>
       </div>
     )
   }

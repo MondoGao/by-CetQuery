@@ -18,7 +18,16 @@ body {
   font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 }
 
+footer {
+  position: absolute;
+  bottom: 26px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
 $headerColor: #73c5c5;
+$headerColorFocus: darken($headerColor, 10);
 $mainColor: #303030;
 $btnColor: #fff;
 
@@ -30,6 +39,10 @@ $btnColor: #fff;
 .main {
   font-size: 44px;
   color: $mainColor;
+  
+  &.main-1 {
+    margin: 170px 0 200px;
+  }
 }
 
 .footer {
@@ -45,7 +58,13 @@ $btnColor: #fff;
   color: $btnColor;
   font-size: 44px;
   border-radius: 6px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, .15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+  transition: background .2s, box-shadow .2s;
+  
+  &:active {
+    background: $headerColorFocus;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .3);
+  }
   
   &.long {
     padding-left: 76px;
@@ -60,6 +79,10 @@ $btnColor: #fff;
 .input-wrapper {
   display: flex;
   flex-direction: row;
+  
+  &:last-of-type {
+    margin-top: 84px;
+  }
   
   label {
     flex: none;
