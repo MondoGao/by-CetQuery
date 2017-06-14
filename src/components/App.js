@@ -1,28 +1,45 @@
 import React from 'react'
 
 import styles from './App.scss'
+import * as sources from 'sources'
 
 class App extends React.Component {
   state = {
-    status: 4,
+    status: 1,
     data: {
-      name: 'test',
-      number: '29384728374827'
+      code: '',
+      name: ''
     }
   }
   
   handleBtnClick = (isNext = true) => e => {
     switch (this.state.status) {
       case 1:
-        this.setState({
-          status: 2
-        })
+        sources.postAdd(this.state.data.code, this.state.data.name)
+          .then(() => {
+            this.setState({
+              status: 2
+            })
+          })
         break;
       case 2:
       case 3:
-        this.setState({
-          status: isNext ? 4 : 1
-        })
+        if (isNext) {
+          sources.getCet()
+            .then(data => {
+              this.setState(prevState => ({
+                status: 4,
+                data: {
+                  ...prevState.data,
+                  ...data.data
+                }
+              }))
+            })
+        } else {
+          this.setState({
+            status: 1
+          })
+        }
         break;
       case 4:
         this.setState({
@@ -32,21 +49,30 @@ class App extends React.Component {
     }
   }
   
+  handleChange = key => e => {
+    this.setState({
+      data: {
+        ...this.state.data,
+        [key]: e.target.value
+      }
+    })
+  }
+  
   eles = () => ({
     header: [
       ['请认真', <br/>, '填写信息！'],
       ['你的信息', <br/>, '已经被爱闹', <br/>, '记在心里了（羞羞'],
       ['你被爱闹', <br/>, '保存的信息！'],
-      [`${this.state.data.name}同学`, <br/>, '你的四级分数：']
+      [`${this.state.data.name}同学`, <br/>, `你的${this.state.data.level > 5 ? '六' : '四'}级分数：`]
     ],
     main: [
-      <EditInfo/>,
+      <EditInfo handleChange={this.handleChange}/>,
       [
         <p>
-          考号：<span>934892843289</span>
+          考号：<span>{this.state.data.number}</span>
         </p>,
         <p>
-          姓名：<span>爱闹</span>
+          姓名：<span>{this.state.data.name}</span>
         </p>,
         <br/>,
         <p>
@@ -55,25 +81,25 @@ class App extends React.Component {
       ],
       [
         <p>
-          考号：<span>02398490284938</span>
+          考号：<span>{this.state.data.number}</span>
         </p>,
         <p>
-          姓名：<span>爱闹</span>
+          姓名：<span>{this.state.data.name}</span>
         </p>
       ],
       [
         <p className={styles.score}>
-          总分：xxx
+          总分：{this.state.data.score}
         </p>,
         <br/>,
         <p>
-          听力：xxx
+          听力：{this.state.data.listen}
         </p>,
         <p>
-          阅读：xxx
+          阅读：{this.state.data.reading}
         </p>,
         <p>
-          写作和翻译：xxx
+          写作和翻译：{this.state.data.writing}
         </p>,
       ]
     ],
@@ -95,7 +121,33 @@ class App extends React.Component {
     return this.eles()[key][this.state.status - 1]
   }
   
+  componentDidMount() {
+    sources.getQuery()
+      .then(data => {
+        if (data.data) {
+          this.setState({
+            status: 3,
+            data: {
+              ...this.state.data,
+              ...data.data
+            }
+          })
+        } else {
+          this.setState({
+            status: 1
+          })
+        }
+      })
+      .catch(err => {
+        alert(err)
+      })
+  }
+  
   render() {
+    if (!~this.state.status) {
+      return null
+    }
+    
     return (
       <div>
         <h2 className={styles.header}>
@@ -116,22 +168,11 @@ class App extends React.Component {
 }
 
 class EditInfo extends React.Component {
-  state = {
-    number: '',
-    name: ''
-  }
-  
-  handleChange = key => e => {
-    this.setState({
-      [key]: e.target.value
-    })
-  }
-  
   render() {
     return (
       <div>
-        <Input value={this.state.number} label="考号：" handleChange={this.handleChange('number')}/>
-        <Input value={this.state.name} label="姓名：" handleChange={this.handleChange('name')}/>
+        <Input value={this.props.number} label="考号：" handleChange={this.props.handleChange('code')}/>
+        <Input value={this.props.name} label="姓名：" handleChange={this.props.handleChange('name')}/>
       </div>
     )
   }
