@@ -77,7 +77,7 @@ class App extends React.Component {
       [`${this.state.data.name}同学`, <br/>, `你的${this.state.data.level > 5 ? '六' : '四'}级分数：`]
     ],
     main: [
-      <EditInfo handleChange={this.handleChange}/>,
+      <EditInfo handleChange={this.handleChange} code={this.state.data.code} name={this.state.data.name}/>,
       [
         <p>
           考号：<span>{this.state.data.code}</span>
