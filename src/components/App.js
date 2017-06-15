@@ -5,8 +5,8 @@ import * as sources from 'sources'
 
 class App extends React.Component {
   state = {
-    isLoading: false,
-    status: 1,
+    isLoading: true,
+    status: -1,
     data: {
       code: '',
       name: ''
