@@ -61,10 +61,15 @@ class App extends React.Component {
   }
   
   handleChange = key => e => {
+    let value = e.target.value
+    if (key === 'code') {
+      value = value.replace(/[^0-9]/g, '')
+    }
+    
     this.setState({
       data: {
         ...this.state.data,
-        [key]: e.target.value
+        [key]: value
       }
     })
   }
