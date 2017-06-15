@@ -102,17 +102,16 @@ class App extends React.Component {
         this.state.data.score ? <div>
           <p className={styles.score}>
             总分：{this.state.data.score}
-          </p>,
-          <br/>,
+          </p>
           <p>
             听力：{this.state.data.listen}
-          </p>,
+          </p>
           <p>
             阅读：{this.state.data.reading}
-          </p>,
+          </p>
           <p>
             写作和翻译：{this.state.data.writing}
-          </p>,
+          </p>
         </div> :
         <p className={styles.score}>
           本闹没有查到你的成绩呢！
