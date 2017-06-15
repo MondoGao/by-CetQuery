@@ -32,7 +32,7 @@ module.exports = WebpackMerge(baseConfig, {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            'css-loader',
+            'css-loader?minimize',
           ]
         })
       }
