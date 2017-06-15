@@ -21,7 +21,7 @@ module.exports = WebpackMerge(baseConfig, {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            'css-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]',
+            'css-loader?minimize&modules&localIdentName=[name]__[local]-[hash:base64:5]',
             'postcss-loader',
             'sass-loader'
           ]
