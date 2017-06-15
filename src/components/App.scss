@@ -21,10 +21,7 @@ body {
 }
 
 footer {
-  position: absolute;
-  bottom: 26px;
-  left: 0;
-  right: 0;
+  margin: 26px 0;
   text-align: center;
 }
 
@@ -33,7 +30,19 @@ $headerColorFocus: darken($headerColor, 10);
 $mainColor: #303030;
 $btnColor: #fff;
 
+:global(#app) {
+  height: 100%;
+}
+
+.app {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .header {
+  flex: none;
   height: 245px;
   font-size: 70px;
   color: $headerColor;
@@ -41,6 +50,7 @@ $btnColor: #fff;
 }
 
 .main {
+  flex: none;
   margin: 100px 0 80px;
   height: 370px;
   line-height: 2;
@@ -53,6 +63,7 @@ $btnColor: #fff;
 }
 
 .footer {
+  flex: none;
   display: flex;
   justify-content: space-between;
 }
