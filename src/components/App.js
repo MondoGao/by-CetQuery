@@ -6,7 +6,7 @@ import * as sources from 'sources'
 class App extends React.Component {
   state = {
     isLoading: true,
-    status: 1,
+    status: -1,
     data: {
       code: '',
       name: ''
@@ -146,6 +146,7 @@ class App extends React.Component {
           })
         } else {
           this.setState({
+            isLoading: false,
             status: 1
           })
         }
