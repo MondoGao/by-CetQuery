@@ -14,6 +14,8 @@ a, a:link, a:focus, a:visited {
 }
 
 body {
+  position: relative;
+  height: 100vh;
   padding: 108px 104px 0;
   font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 }
