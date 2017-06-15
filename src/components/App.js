@@ -80,7 +80,7 @@ class App extends React.Component {
       <EditInfo handleChange={this.handleChange}/>,
       [
         <p>
-          考号：<span>{this.state.data.number}</span>
+          考号：<span>{this.state.data.code}</span>
         </p>,
         <p>
           姓名：<span>{this.state.data.name}</span>
@@ -92,7 +92,7 @@ class App extends React.Component {
       ],
       [
         <p>
-          考号：<span>{this.state.data.number}</span>
+          考号：<span>{this.state.data.code}</span>
         </p>,
         <p>
           姓名：<span>{this.state.data.name}</span>
@@ -195,7 +195,7 @@ class EditInfo extends React.Component {
   render() {
     return (
       <div>
-        <Input value={this.props.number} label="考号：" handleChange={this.props.handleChange('code')}/>
+        <Input value={this.props.code} label="考号：" handleChange={this.props.handleChange('code')}/>
         <Input value={this.props.name} label="姓名：" handleChange={this.props.handleChange('name')}/>
       </div>
     )
