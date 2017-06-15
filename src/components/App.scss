@@ -21,7 +21,7 @@ body {
 }
 
 footer {
-  margin: 26px 0;
+  margin: auto 0 26px;
   text-align: center;
 }
 
@@ -66,6 +66,7 @@ $btnColor: #fff;
   flex: none;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 26px;
 }
 
 .btn {
