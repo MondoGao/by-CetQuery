@@ -99,19 +99,24 @@ class App extends React.Component {
         </p>
       ],
       [
+        this.state.data.score ? <div>
+          <p className={styles.score}>
+            总分：{this.state.data.score}
+          </p>,
+          <br/>,
+          <p>
+            听力：{this.state.data.listen}
+          </p>,
+          <p>
+            阅读：{this.state.data.reading}
+          </p>,
+          <p>
+            写作和翻译：{this.state.data.writing}
+          </p>,
+        </div> :
         <p className={styles.score}>
-          总分：{this.state.data.score}
-        </p>,
-        <br/>,
-        <p>
-          听力：{this.state.data.listen}
-        </p>,
-        <p>
-          阅读：{this.state.data.reading}
-        </p>,
-        <p>
-          写作和翻译：{this.state.data.writing}
-        </p>,
+          再耐心等等成绩出来吧！
+        </p>
       ]
     ],
     footer: [
