@@ -170,7 +170,7 @@ class App extends React.Component {
   render() {
     if (!~this.state.status ||this.state.isLoading) {
       return (
-        <div>
+        <div  className={styles.app}>
           <h2 className={styles.header}>
             加载中...
           </h2>
