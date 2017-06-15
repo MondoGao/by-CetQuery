@@ -35,33 +35,18 @@ footer {
 }
 
 .App__header-1d5Qc {
+  height: 3.266667rem;
   font-size: 0.933333rem;
   color: #73c5c5;
   white-space: nowrap;
 }
 
 .App__main-15Ir1 {
+  margin: 1.333333rem 0 0.666667rem;
+  height: 4.666667rem;
+  line-height: 2;
   font-size: 0.586667rem;
   color: #303030;
-}
-
-.App__main-15Ir1.App__main-1-2T81t {
-  margin: 2.266667rem 0 2.666667rem;
-}
-
-.App__main-15Ir1.App__main-2-wVpj_ {
-  margin: 1.333333rem 0 2.133333rem;
-  line-height: 2;
-}
-
-.App__main-15Ir1.App__main-3-6TxMy {
-  margin: 2.4rem 0 3.333333rem;
-  line-height: 2;
-}
-
-.App__main-15Ir1.App__main-4-2r3KF {
-  margin: 1.653333rem 0 1.333333rem;
-  line-height: 2;
 }
 
 .App__main-15Ir1 .App__score-1t1aZ {
