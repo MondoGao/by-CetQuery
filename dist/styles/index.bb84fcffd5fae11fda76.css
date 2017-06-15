@@ -27,10 +27,7 @@ body {
 }
 
 footer {
-  position: absolute;
-  bottom: 0.346667rem;
-  left: 0;
-  right: 0;
+  margin-top: 0.4rem;
   text-align: center;
 }
 
