@@ -157,12 +157,8 @@ class App extends React.Component {
         }
       })
       .catch(err => {
-        if (err.data && err.data.status == 100) {
-          alert('别太着急啦~成绩还没出哦~')
-        } else {
-          alert(err)
-          console.log(err.stack)
-        }
+        console.log(err.stack)
+        alert(`加载出现了一点小问题！请稍后再试哦~`)
       })
   }
   
@@ -182,7 +178,7 @@ class App extends React.Component {
         <h2 className={styles.header}>
           {this.getEl('header')}
         </h2>
-        <article className={`${styles.main} ${styles[`main-${this.state.status}`]}`}>
+        <article className={`${styles.main}`}>
           {this.getEl('main')}
         </article>
         <div className={styles.footer}>
