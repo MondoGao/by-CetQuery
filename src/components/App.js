@@ -170,6 +170,9 @@ class App extends React.Component {
           <h2 className={styles.header}>
             加载中...
           </h2>
+          <footer>
+            2017© Powered by Bingyan Studio
+          </footer>
         </div>
       )
     }
