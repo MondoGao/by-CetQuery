@@ -153,6 +153,9 @@ class App extends React.Component {
       .catch(err => {
         if (err.data && err.data.status == 100) {
           alert('别太着急啦~成绩还没出哦~')
+        } else {
+          alert(err)
+          console.log(err.stack)
         }
       })
   }
