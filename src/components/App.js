@@ -5,8 +5,8 @@ import * as sources from 'sources'
 
 class App extends React.Component {
   state = {
-    isLoading: true,
-    status: -1,
+    isLoading: false,
+    status: 1,
     data: {
       code: '',
       name: ''
@@ -177,7 +177,7 @@ class App extends React.Component {
     }
     
     return (
-      <div>
+      <div className={styles.app}>
         <h2 className={styles.header}>
           {this.getEl('header')}
         </h2>
