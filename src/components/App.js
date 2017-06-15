@@ -74,7 +74,7 @@ class App extends React.Component {
       ['请认真', <br/>, '填写信息！'],
       ['你的信息', <br/>, '已经被爱闹', <br/>, '记在心里了（羞羞'],
       ['你被爱闹', <br/>, '保存的信息！'],
-      [`${this.state.data.name}同学`, <br/>, `你的${this.state.data.level > 5 ? '六' : '四'}级分数：`]
+      this.state.data.score ? [`${this.state.data.name}同学`, <br/>, `你的${this.state.data.level > 5 ? '六' : '四'}级分数：`] : null
     ],
     main: [
       <EditInfo handleChange={this.handleChange} code={this.state.data.code} name={this.state.data.name}/>,
@@ -115,7 +115,8 @@ class App extends React.Component {
           </p>,
         </div> :
         <p className={styles.score}>
-          再耐心等等成绩出来吧！
+          本闹没有查到你的成绩呢！
+          检查一下你的信息或者再耐心等一等吧！
         </p>
       ]
     ],
@@ -157,12 +158,8 @@ class App extends React.Component {
         }
       })
       .catch(err => {
-        if (err.data && err.data.status == 100) {
-          alert('别太着急啦~成绩还没出哦~')
-        } else {
-          alert(err)
-          console.log(err.stack)
-        }
+        console.log(err.stack)
+        alert(`加载出现了一点小问题！请稍后再试哦~`)
       })
   }
   
@@ -182,7 +179,7 @@ class App extends React.Component {
         <h2 className={styles.header}>
           {this.getEl('header')}
         </h2>
-        <article className={`${styles.main} ${styles[`main-${this.state.status}`]}`}>
+        <article className={`${styles.main}`}>
           {this.getEl('main')}
         </article>
         <div className={styles.footer}>

@@ -32,30 +32,18 @@ $mainColor: #303030;
 $btnColor: #fff;
 
 .header {
+  height: 245px;
   font-size: 70px;
   color: $headerColor;
   white-space: nowrap;
 }
 
 .main {
+  margin: 100px 0 50px;
+  height: 350px;
+  line-height: 2;
   font-size: 44px;
   color: $mainColor;
-  
-  &.main-1 {
-    margin: 170px 0 200px;
-  }
-  &.main-2 {
-    margin: 100px 0 160px;
-    line-height: 2;
-  }
-  &.main-3 {
-    margin: 180px 0 250px;
-    line-height: 2;
-  }
-  &.main-4 {
-    margin: 124px 0 100px;
-    line-height: 2;
-  }
   
   .score {
     font-size: 60px;
