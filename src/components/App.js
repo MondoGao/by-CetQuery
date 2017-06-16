@@ -41,7 +41,8 @@ class App extends React.Component {
                 isLoading: false,
                 status: 4,
                 data: {
-                  ...prevState.data,
+                  code: prevState.data.code,
+                  name: prevState.data.name,
                   ...data.data
                 }
               }))
