@@ -118,7 +118,7 @@ class App extends React.Component {
             写作和翻译：{this.state.data.writing}
           </p>
         </div> :
-        <p className={styles.score}>
+        <p>
           本闹没有查到你的成绩呢！
           检查一下你的信息或者再耐心等一等吧！
         </p>
